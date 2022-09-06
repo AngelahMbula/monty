@@ -1,7 +1,7 @@
 # 0x19. C - Stacks, Queues - LIFO, FIFO
-# monty
+# Monty
 Monty 0.98 is a scripting language that is first compiled into Monty byte codes (Just like Python). It relies on a unique stack, with specific instructions to manipulate it. The goal of this project is to create an interpreter for Monty ByteCodes files.
-# The monty program
+# The Monty Program
 Usage: monty file
 where file is the path to the file containing Monty byte code
 If the user does not give any file or more than one argument to your program, print the error message USAGE: monty file, followed by a new line, and exit with the status EXIT_FAILURE
@@ -16,3 +16,5 @@ it finds an error in the file
 an error occured
 If you can’t malloc anymore, print the error message Error: malloc failed, followed by a new line, and exit with status EXIT_FAILURE.
 You have to use malloc and free and are not allowed to use any other function from man malloc (realloc, calloc, …)
+# Authors/Collaborators
+Angelah Mbula & Brian Njoroge
