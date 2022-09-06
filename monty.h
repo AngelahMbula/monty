@@ -64,5 +64,9 @@ int unknown_op_error(unsigned int line_number, char *opcode);
 int malloc_error(void);
 
 void _push(stack_t **stack, unsigned int n);
+void _pall(stack_t **stack, unsigned int n);
+void _pint(stack_t **stack, unsigned int n);
+void _pop(stack_t **stack, unsigned int n);
+void _swap(stack_t **stack, unsigned int line_number);
 
 #endif
