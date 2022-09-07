@@ -11,6 +11,8 @@
 #include <string.h>
 #include <ctype.h>
 
+extern unsigned int line_number;
+
 /**
  *
  *  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -68,5 +70,10 @@ void _pall(stack_t **stack, unsigned int n);
 void _pint(stack_t **stack, unsigned int n);
 void _pop(stack_t **stack, unsigned int n);
 void _swap(stack_t **stack, unsigned int line_number);
+int _isdigit(char *c);
+void is_valid(stack_t **stack, char **tokens);
+void call(stack_t **stack, char **tokens);
+char **tokenize(char *buffer);
+void free_stack(stack_t **stack);
 
 #endif
