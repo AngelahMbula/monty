@@ -1,4 +1,9 @@
 #include "monty.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+
+unsigned int line_number = 0;
 /**
  * main - program 
  * @argc: argument count
@@ -11,16 +16,19 @@ int main(int argc, char *argv[])
 	char **tokens = NULL;
 	char *buffer = NULL;
 	size_t n;
-	FILE fp;
+	ssize_t nread;
+	FILE *stream;
 
 	if (argc != 2)
 		return (usage_error());
 
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
-		return (f_open_error(filename));
-
-	while ((getline(&buffer, &n, fp)) != -1)
+	stream = fopen(argv[1], "r");
+	if (stream == NULL)
+	{
+		fprintf(stderr, "Error: can't open file %s\n", argv[1]);
+		return (EXIT_FAILURE);
+	}
+	while ((nread = getline(&buffer, &n, stream)) != -1)
 	{
 		line_number++;
 		tokens = tokenize(buffer);
@@ -32,7 +40,7 @@ int main(int argc, char *argv[])
 	}
 	free(buffer);
 	free_stack(&head);
-	fclose(fp);
+	fclose(stream);
 
 	return (0);
 }

@@ -71,9 +71,11 @@ void _pint(stack_t **stack, unsigned int n);
 void _pop(stack_t **stack, unsigned int n);
 void _swap(stack_t **stack, unsigned int line_number);
 int _isdigit(char *c);
-void is_valid(stack_t **stack, char **tokens);
-void call(stack_t **stack, char **tokens);
+void is_valid(char **tokens, stack_t **stack);
+void call(char **tokens, stack_t **stack);
 char **tokenize(char *buffer);
 void free_stack(stack_t **stack);
+int no_int_error(unsigned int line_number);
+size_t getline(char **string, size_t *n, FILE *stream);
 
 #endif

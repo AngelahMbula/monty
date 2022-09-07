@@ -9,17 +9,7 @@ static instruction_t ops[] = {
 	{"pall", _pall},
 	{"pop", _pop},
 	{"swap", _swap},
-	{"add", _add},
-	{"nop", NULL},
 	{"pint", _pint},
-	{"mul", _mul},
-	{"div", _div},
-	{"sub", _sub},
-	{"mod", _mod},
-	{"pstr", _pstr},
-	{"pchar", _pchar},
-	{"rotr", _rotr},
-	{"rot1", _rot1},
 	{NULL, NULL}
 };
 
@@ -47,27 +37,29 @@ int _isdigit(char *c)
  * @stack: pointer to the stack
  * Return: void
  */
-void is_valid(stack_t **stack, char **tokens)
+void is_valid(char **tokens, stack_t **stack)
 {
 	int idx = 0;
 
-	if (tokens[1] == NULL)
+	if (!tokens[1])
 	{
 		if (*stack)
 			free_stack(stack);
 		free(tokens);
-		return (no_int_error(line_number));
+		no_int_error(line_number);
+		return;
 	}
 	while (tokens[1][idx])
 	{
 		if (tokens[1][idx] == '-' && idx == 0)
 			idx++;
-		if (_isdigit(tokens[1][idx] == 0))
+		if (isdigit(tokens[1][idx] == 0))
 		{
 			if (*stack)
 				free_stack(stack);
 			free(tokens);
-			return (no_int_error(line_number));
+			no_int_error(line_number);
+			return;
 		}
 		idx++;
 	}
@@ -79,15 +71,15 @@ void is_valid(stack_t **stack, char **tokens)
  * @stack: pointer to the stack
  * Return: void
  */
-void call(stack_t **stack, char **tokens)
+void call(char **tokens, stack_t **stack)
 {
 	int idx = 0;
 
 	while (ops[idx].opcode)
 	{
-		if (token[0][0] == '#')
+		if (tokens[0][0] == '#')
 			return;
-		if (strcmp(token[0], ops[idx].opcode) == 0)
+		if (strcmp(tokens[0], ops[idx].opcode) == 0)
 		{
 			if (ops[idx].f)
 				ops[idx].f(stack, line_number);
@@ -102,7 +94,8 @@ void call(stack_t **stack, char **tokens)
 	}
 	else if (!(ops[idx].opcode))
 	{
-		return (unknown_op_error(line_number, tokens[0]);
+		unknown_op_error(line_number, tokens[0]);
+		return;
 	}
 }
 
@@ -127,7 +120,7 @@ char **tokenize(char *buffer)
 	if (array == NULL)
 	{
 		free(buffer);
-		return (malloc_error());
+		malloc_error();
 	}
 	while (--idx)
 		array[idx - 1] = NULL;

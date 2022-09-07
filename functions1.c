@@ -14,7 +14,8 @@ void _push(stack_t **stack, unsigned int n)
 	if (new_node == NULL)
 	{
 		free_stack(stack);
-		return (malloc_error());
+		malloc_error();
+		return;
 	}
 	new_node->n = n;
 	new_node->prev = NULL;
