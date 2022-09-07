@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <ctype.h>
-
+#include <stddef.h>
 extern unsigned int line_number;
 
 /**
