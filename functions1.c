@@ -44,7 +44,7 @@ void _pall(stack_t **stack, unsigned int n)
 
 	if (*stack == NULL || stack == NULL)
 		return;
-	node = *stack;
+	node = (*stack)->next;
 
 	while (node)
 	{
