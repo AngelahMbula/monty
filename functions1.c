@@ -5,7 +5,7 @@
  * @n: line number
  * Return: void
  */
-void _push(stack_t **stack, unsigned int n)
+void push(stack_t **stack, unsigned int n)
 {
 	stack_t *new_node = NULL;
 	(void) n;
@@ -37,7 +37,7 @@ void _push(stack_t **stack, unsigned int n)
  * @n: line number
  * Return: void
  */
-void _pall(stack_t **stack, unsigned int n)
+void pall(stack_t **stack, unsigned int n)
 {
 	stack_t *node;
 	(void) n;
