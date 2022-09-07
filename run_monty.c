@@ -5,8 +5,8 @@
  * Return: 1 on success, 0 otherwise
  */
 static instruction_t ops[] = {
-	{"push", _push},
-	{"pall", _pall},
+	{"push", push},
+	{"pall", pall},
 	{"pop", _pop},
 	{"swap", _swap},
 	{"pint", _pint},
