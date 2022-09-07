@@ -115,7 +115,7 @@ char **tokenize(char *buffer)
 
 	if (token == NULL)
 		return (NULL);
-	array = malloc(sizeof(char**) *3);
+	array = malloc(sizeof(char **) *3);
 
 	if (array == NULL)
 	{
