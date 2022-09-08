@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+unsigned int line_number = 0;
 /**
  * main - program 
  * @argc: argument count

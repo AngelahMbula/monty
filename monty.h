@@ -12,6 +12,8 @@
 #include <ctype.h>
 #include <stddef.h>
 
+extern unsigned int line_number;
+
 /**
  *
  *  * struct stack_s - doubly linked list representation of a stack (or queue)
